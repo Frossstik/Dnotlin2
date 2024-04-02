@@ -24,18 +24,14 @@ fun lab2(){
     array.add(0, 90)
     array.removeAt(4)
     array.add(-35)
-    println(array)
+    println(array.toString().replace("[", "").replace("]",""))
 }
 
 fun lab3(arr: String): ArrayList<Int>{
-    val arr1 = arr.split(", ")
-    val array = ArrayList<Int>()
-    for(i in arr1){
-        array.add(i.toInt())
-    }
-    println("max = ${array.max()}")
-    println("min = ${array.min()}")
-    return array
+    val arr1 = ArrayList<Int>(arr.split(", ").map { x -> x.toInt() })
+    println("max = ${arr1.max()}")
+    println("min = ${arr1.min()}")
+    return arr1
 }
 
 fun lab4(arr: ArrayList<Int>){
@@ -46,7 +42,7 @@ fun lab4(arr: ArrayList<Int>){
 
 fun lab5(arr: ArrayList<Int>){
     arr.sort()
-    println(arr)
+    println(arr.toString().replace("[", "").replace("]",""))
 }
 
 fun lab6(arr: ArrayList<Int>){
@@ -55,18 +51,15 @@ fun lab6(arr: ArrayList<Int>){
         average+=i
     average/=arr.size
     println(average)
-    for (i in arr){
-        if (i > average)
-            print("$i ")
-    }
-    println()
+    println(arr.filter { x -> x > average }.toString().replace("[", "").replace("]",""))
 }
 
 fun main() {
     println("Введите 2 числа:")
     val num1 = readln()
     val num2 = readln()
-    println(lab1(num1.toInt(), num2.toInt()))
+    println(lab1(num1.toInt(), num2.toInt()).toString()
+        .replace("[", "").replace("]",""))
     println()
 
     lab2()
