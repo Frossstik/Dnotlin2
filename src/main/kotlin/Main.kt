@@ -35,7 +35,7 @@ fun lab3(arr: String): ArrayList<Int>{
 }
 
 fun lab4(arr: ArrayList<Int>){
-    var array: ArrayList<Int> = arr
+    val array = arr.distinct() as ArrayList<Int>
     array.remove(array.min())
     println(array.min())
 }
